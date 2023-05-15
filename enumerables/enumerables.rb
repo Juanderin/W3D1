@@ -61,6 +61,10 @@ class Array
         return true 
     end
 
+    def my_flatten
+        return [self] if self.class != array
+    end
+
 
 end 
 
