@@ -26,6 +26,22 @@ class Array
     end
     
 
+    def my_reject(&prc) 
+
+        new_arr = []
+
+        i = 0
+        while i < self.length 
+            if !prc.call(self[i])
+                new_arr << self[i]
+            end 
+            i += 1
+        end 
+
+        new_arr
+
+    end 
+
 
 
 
@@ -41,6 +57,11 @@ end
 # p return_value  # => [1, 2, 3]
 
 
-p a = [1, 2, 3]
-p a.my_select { |num| num > 1 } # => [2, 3]
-p a.my_select { |num| num == 4 } # => []
+# p a = [1, 2, 3]
+# p a.my_select { |num| num > 1 } # => [2, 3]
+# p a.my_select { |num| num == 4 } # => []
+
+
+a = [1, 2, 3]
+p a.my_reject { |num| num > 1 } # => [1]
+p a.my_reject { |num| num == 4 } # => [1, 2, 3]
