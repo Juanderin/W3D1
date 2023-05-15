@@ -39,7 +39,7 @@ Implement the following enumerable methods.
 ### `my_each`
 
 Extend the Array class to include a method named `my_each` that takes a block,
-calls the block on every element of the array, and returns the original array.
+calls the block on every element of the array, and returns the original array. 
 **Do not use Enumerable's `each` method.** When finished, you should be able
 to write:
 
