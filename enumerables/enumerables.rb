@@ -62,7 +62,19 @@ class Array
     end
 
     def my_flatten
-        return [self] if self.class != array
+
+        return [self] if self.class != Array
+
+        flatten = []
+
+        my_each do |ele|
+            if ele.class == Array
+                flatten += my_flatten
+            else 
+                flatten << ele 
+            end 
+        end 
+        flatten
     end
 
 
@@ -87,9 +99,12 @@ end
 # p a.my_reject { |num| num > 1 } # => [1]
 # p a.my_reject { |num| num == 4 } # => [1, 2, 3]
 
-a = [1, 2, 3]
-p a.my_any? { |num| num > 1 } # => true
-p a.my_any? { |num| num == 4 } # => false
+# a = [1, 2, 3]
+# p a.my_any? { |num| num > 1 } # => true
+# p a.my_any? { |num| num == 4 } # => false
 
-p a.my_all? { |num| num > 1 } # => false
-p a.my_all? { |num| num < 4 } # => true
+# p a.my_all? { |num| num > 1 } # => false
+# p a.my_all? { |num| num < 4 } # => true
+
+
+p [1, 2, 3, [4, [5, 6]], [[[7]], 8]].my_flatten
