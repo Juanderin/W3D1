@@ -54,8 +54,8 @@ class Array
 
     def my_all?(&prc)
         my_each do |ele|
-            if prc.call(ele)
-                return true
+            if !prc.call(ele)
+                return false
             end
         end
         return true 
